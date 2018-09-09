@@ -1,17 +1,16 @@
 electron-settings
 =================
 
+> A robust settings management library for [Electron][external_electron].
+
 [![Npm version][badge_npm-version]][external_npm]
 [![Npm downloads][badge_npm-downloads]][external_npm]
 [![David][badge_david]][external_david]
 [![Travis][badge_travis]][external_travis]
 [![Gitter][badge_gitter]][external_gitter]
 
-A simple persistent user settings framework for [Electron][external_electron].
-
-Originally adapted from Atom's own configuration manager and the settings manager of choice for [Electron's own demo app](https://github.com/electron/electron-api-demos), electron-settings allows you to persist user settings and other data simply and easily.
-
-Also, you can [subscribe to properties](https://github.com/nathanbuchar/electron-settings/wiki/API-documentation#watch) and get notified when their values change. So that's pretty nifty.
+<br/>
+Adapted from [Atom's](https://atom.io) own configuration manager and the settings manager of choice for [Electron's own demo app](https://github.com/electron/electron-api-demos), electron-settings allows you to persist user settings and other data simply and easily.
 
 <br/>
 
@@ -19,8 +18,8 @@ Also, you can [subscribe to properties](https://github.com/nathanbuchar/electron
 Install
 -------
 
-```
-$ npm install --save electron-settings
+```bash
+npm install electron-settings
 ```
 
 
@@ -28,25 +27,16 @@ Demo
 ----
 
 ```js
-const { app } = require('electron');
-const settings = require('electron-settings');
+const settings = new ElectronSettings();
 
-app.on('ready', () => {
-
-  settings.set('name', {
-    first: 'Cosmo',
-    last: 'Kramer'
-  });
-
-  settings.get('name.first');
-  // => "Cosmo"
-
-  settings.has('name.middle');
-  // => false
+settings.setSync('name', {
+  first: 'Julius',
+  last: 'Caesar'
 });
-```
 
-:warning: **Please note:** Any and all interaction with electron-settings must be executed after the Electron app has fired the `ready` event, otherwise your app may encounter unexpected errors or data loss.
+settings.getSync('name.last');
+// => "Caesar"
+```
 
 
 Resources

@@ -1,16 +1,22 @@
 {
   "extends": "airbnb-base",
+  "env": {
+    "mocha": true,
+    "node": true
+  },
   "rules": {
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-body-style": "off",
+    "arrow-parens": ["error", "always"],
     "class-methods-use-this": "off",
-    "comma-dangle": ["error", "never"],
+    "consistent-return": "off",
     "default-case": "off",
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "no-param-reassign": "off",
+    "no-else-return": "off",
+    "no-lonely-if": "off",
+    "no-param-reassign": ["error", { "props": false }],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-shadow": "off",
     "no-underscore-dangle": "off",
     "padded-blocks": "off",
-    "prefer-template": "off"
+    "prefer-destructuring": "off"
   }
 }
